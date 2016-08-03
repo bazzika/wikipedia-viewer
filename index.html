@@ -36,13 +36,30 @@
     <div class="random">
         <a href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article</a>
     </div>
-
+    <div class="articles">
+<input type="search" name="search" class="glyphicon glyphicon-search" id="search">
+        <p class="one"></p>
+    </div>
     </div>
 </body>
 <script>
+  $(document).ready(function(){
+        $.ajax({
+            url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch='+'moscow'+'&format=json&callback=?',
+            dataType: 'json',
+            type: 'GET',
+            headers: {
+                'Api-User-Agent': 'Example/1.0' },
+            success: function (data) {
+                $('.one').html(JSON.stringify(data));
+                console.log(data);
+            },
+            error: function(err) {
+                console.log(err);
+            }
 
+        });
 
-
-
+  });
 </script>
 </html>
