@@ -48,9 +48,9 @@
 </body>
 <script>
   $(document).ready(function() {
+
       $('#search').click(function () {
           var result = $('#searchbox').val();
-//          var searchResult = encodeURI(result);
           $('.one').html('');
 
 
@@ -79,8 +79,53 @@
                   $('.one').append("<div> <a href='//en.wikipedia.org/wiki/"+result+"'> <h4>" + data.query.search[i].title + "</h4>" + data.query.search[i].snippet + "</a> </div>");
               }
           }
+          function showArticlesEnter(data) {
+              $(document).keypress(function (event) {
+                  if (event.which==13){
+                      var i;
+                      for (i=0;i<10;i++) {
+                          console.log(data.query.search[i]);
+                          $('.one').append("<div> <a href='//en.wikipedia.org/wiki/"+result+"'> <h4>" + data.query.search[i].title + "</h4>" + data.query.search[i].snippet + "</a> </div>");
+                      }
+                  }
+              });
+          }
 
       });
+
+      $(document).keypress(function (e) {
+          if (e.which == 13) {
+              var result = $('#searchbox').val();
+              $('.one').html('');
+
+
+              $.ajax({
+                  url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=' + result + '&format=json&callback=?',
+                  dataType: 'json',
+                  type: 'GET',
+                  headers: {
+                      'Api-User-Agent': 'Example/1.0'
+                  },
+                  success: function (data) {
+//                  $('.one').html(JSON.stringify(data));
+//                  console.log(data);
+                      showArticles(data);
+                  },
+                  error: function (err) {
+                      console.log(err);
+                  }
+
+              });
+              function showArticles(data) {
+                  var i;
+                  for (i = 0; i < 10; i++) {
+                      console.log(data.query.search[i]);
+                      $('.one').append("<div> <a href='//en.wikipedia.org/wiki/" + result + "'> <h4>" + data.query.search[i].title + "</h4>" + data.query.search[i].snippet + "</a> </div>");
+                  }
+              }
+          }
+      });
+
   });
 </script>
 </html>
