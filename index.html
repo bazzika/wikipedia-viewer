@@ -10,7 +10,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <style>
     body{
-        background-color: #39404A;
+        background-color: #39404B;
         background: cover;
     }
     a, .link-random:hover {
@@ -95,6 +95,7 @@ li{
         padding: 0;
         text-align: center;
         color:green;
+        float:right;
     }
     #all-box{
         border: solid 3px green;
@@ -109,7 +110,8 @@ li{
     padding: 0;
     text-align: center;
     color:green;
-    margin-right: -70px;
+    display: none;
+    float:right;
 }
     #line{
         font-size:30px;
@@ -141,9 +143,9 @@ li{
         <a href="#"><span class="glyphicon glyphicon-search col-xs-1" id="search" data-toggle="tooltip" title="search" >
       </span>
             </a>
-        <span class="glyphicon bar col-xs-1" id="line">
-        <b>|</b>
-            </span>
+        <!--<span class="glyphicon bar col-xs-1" id="line">-->
+        <!--<b>|</b>-->
+            <!--</span>-->
             <!--<-->
         <a href="#"><span class="glyphicon glyphicon-remove col-xs-1" id="remove" data-toggle="tooltip" title="remove" >
       </span>
@@ -162,6 +164,13 @@ li{
           var result = $('#searchbox').val();
           $('.one').text('');
           $('.zero').removeClass().addClass('new row');
+          if (result!=0){
+              $('#search').css('display','none');
+              $('#remove').css('display','inline');
+          } else {
+              $('#search').css('display','inline');
+              $('#remove').css('display','none');
+          }
 
           $.ajax({
               url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=' + result + '&format=json&callback=?',
@@ -175,7 +184,6 @@ li{
 //                  $('.one').html(JSON.stringify(data));
 //                  console.log(data);
                           showArticles(data);
-                          change();
                       },
               error: function (err) {
                   console.log(err);
@@ -198,6 +206,7 @@ li{
           if (e.which == 13) {
               var result = $('#searchbox').val();
               $('.one').html('');
+              $('.zero').removeClass().addClass('new row');
 
 
               $.ajax({
@@ -217,12 +226,13 @@ li{
                   }
 
               });
-              function showArticles(data) {
+              function showArticles(data){
                   var i;
-                  for (i = 0; i < 10; i++) {
+                  for (i=0;i<10;i++) {
                       console.log(data.query.search[i]);
-                      $('.one').append("<div> <a href='//en.wikipedia.org/wiki/" + result + "'> <h4>" + data.query.search[i].title + "</h4>" + data.query.search[i].snippet + "</a> </div>");
+                      $('.one').append("<a href='//en.wikipedia.org/wiki/"+result+"'><li class='article'><h4>" + data.query.search[i].title + "</h4>" +"<p>"+data.query.search[i].snippet+"</p>" + "</li></a>"+'<br>');
                   }
+
               }
           }
       });
@@ -231,9 +241,21 @@ li{
               $('.one').text('');
               $('#searchbox').val('');
               $('.new').removeClass().addClass('zero row');
+              $('#search').css('display','inline');
+              $('#remove').css('display','none');
           });
       }
       relocate();
+     $('#searchbox').keypress(function () {
+         console.log('hi');
+         var res = $('#searchbox').val();
+         if (res!=""){
+             $('#search').css('display','none');
+             $('#remove').css('display','inline')
+         }
+     });
+
+
   });
 </script>
 </html>
