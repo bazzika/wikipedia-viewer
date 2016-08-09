@@ -98,12 +98,24 @@ li{
         float:right;
     }
     #all-box{
-        border: solid 3px green;
-        padding: 0;
-        margin: 30px auto;
+        width: 250px;
+        border:solid 3px green;
+        padding: 0 auto;
+        margin: 30px 0;
         position: relative;
         z-index: 20;
+        transition-property: width;
+        transition-duration: 1s;
+        transition-timing-function: ease-out;
     }
+    #all-box:hover,#all-box:focus{
+        width:100%;
+    }
+    #all-box:active{
+        width: 100%;
+    }
+
+
 #remove{
     font-size:20px;
     line-height: 40px;
@@ -136,10 +148,11 @@ li{
 <body>
 <div class="container">
     <div class="zero row">
+        <div class="form col-xs-12">
         <a href="https://en.wikipedia.org/wiki/Special:Random" class="link-random">Click here for a random article</a>
-
+</div>
     <div class="form col-xs-12" id="all-box">
-        <input class='col-xs-8' id="searchbox" type="text" search="article" placeholder="">
+        <input class='col-xs-10' id="searchbox" type="text" search="article" placeholder="">
         <a href="#"><span class="glyphicon glyphicon-search col-xs-1" id="search" data-toggle="tooltip" title="search" >
       </span>
             </a>
@@ -161,6 +174,7 @@ li{
   $(document).ready(function() {
 
       $('#search').click(function () {
+          $('#all-box').css('width','100%')
           var result = $('#searchbox').val();
           $('.one').text('');
           $('.zero').removeClass().addClass('new row');
@@ -203,6 +217,7 @@ li{
       });
 
       $('#searchbox').keypress(function (e) {
+          $('#all-box').css('width','100%');
           if (e.which == 13) {
               var result = $('#searchbox').val();
               $('.one').html('');
@@ -243,6 +258,7 @@ li{
               $('.new').removeClass().addClass('zero row');
               $('#search').css('display','inline');
               $('#remove').css('display','none');
+              $('#all-box').css('width','250px');
           });
       }
       relocate();
@@ -254,8 +270,8 @@ li{
              $('#remove').css('display','inline')
          }
      });
-
-
+//      http://ios7colors.com/
+//      https://material.google.com/style/color.html#
   });
 </script>
 </html>
