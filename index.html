@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <title>Wikipedia Viewer</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -73,7 +73,7 @@ li{
     }
     #searchbox{
         border: none;
-        float: left;
+        /*float: left;*/
         position: relative;
         padding-left: 10px;
         margin: 0;
@@ -86,6 +86,7 @@ li{
         font-family: 'Courier New',sans-serif;
         letter-spacing: 1px;
         cursor: auto;
+        display: inline-block;
     }
 
     #search{
@@ -98,21 +99,25 @@ li{
         float:right;
     }
     #all-box{
-        width: 250px;
+        width: 50%;
         border:solid 3px green;
         padding: 0 auto;
-        margin: 30px 0;
-        position: relative;
+        margin: 30px 25%;
+        /*position: relative;*/
         z-index: 20;
-        transition-property: width;
+        transition-property: width,margin;
         transition-duration: 1s;
         transition-timing-function: ease-out;
+        display: inline-block;
     }
     #all-box:hover,#all-box:focus{
         width:100%;
+        margin: 30px auto;
     }
     #all-box:active{
         width: 100%;
+        margin: 30px auto;
+
     }
 
 
