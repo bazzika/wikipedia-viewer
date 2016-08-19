@@ -29,7 +29,8 @@ a:hover{
     font-family: 'Courier New',sans-serif;
     text-align: center;
     position: relative;
-    margin: 300px auto auto auto;
+    margin: 300px auto 0 auto;
+    vertical-align: middle;
 }
 
 .one{
@@ -87,11 +88,21 @@ li:hover{
     color:green;
     float:right;
 }
+/*.first{*/
+    /*width: 400px;*/
+    /*border:solid 3px green;*/
+    /*padding: 0 auto;*/
+    /*margin: 30px -200px 30px 200px;*/
+    /*!*position: relative;*!*/
+    /*z-index: 20;*/
+/*}*/
 #all-box{
-    width: 50%;
+    width: 400px;
     border:solid 3px green;
     padding: 0 auto;
-    margin: 30px 25%;
+    /*margin: 30px auto;*/
+
+    margin: 30px 200px 0 200px;
     /*position: relative;*/
     z-index: 20;
     transition-property: width,margin;
@@ -99,15 +110,20 @@ li:hover{
     transition-timing-function: ease-out;
     display: inline-block;
 }
-#all-box:hover,#all-box:focus{
-    width:100%;
-    margin: 30px auto;
-}
-#all-box:active{
-    width: 100%;
-    margin: 30px auto;
 
+#all-box:hover,#all-box:active{
+    width:800px;
+    margin: 30px auto;
+    /*margin: 30px auto 30px auto;*/
+    /*padding: 0 auto;*/
 }
+/*#all-box:active{*/
+    /*width: 100%;*/
+    /*!*margin: 3
+    0px 40px 30px -40px;*!*/
+    /*padding: 0 auto;*/
+
+/*}*/
 
 
 #remove{
@@ -118,6 +134,7 @@ li:hover{
     color:green;
     display: none;
     float:right;
+    padding-right: 0px;
 }
 #line{
     font-size:30px;
@@ -132,8 +149,8 @@ li:hover{
     font-family: 'Courier New',sans-serif;
     text-align: center;
     position: relative;
-    margin: 70px auto 20px auto;
-    position: relative;
+    margin: 70px 0px 20px 0px;
+    /*position: relative;*/
 
 }
 
