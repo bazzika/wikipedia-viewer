@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Wikipedia Viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <title>Wikipedia Viewer</title>
 </head>
 <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <body>
 <div class="container">
     <div class="zero row-fluid">
-        <div class="form col-xs-12 col-md-12 col-sm-12 col-lg-12">
+        <div class="form col-xs-12 col-md-12 col-sm-12">
         <a href="https://en.wikipedia.org/wiki/Special:Random" class="link-random">Click here for a random article</a>
 </div>
-    <div class="form col-xs-12 col-md-12 col-sm-12 col-lg-12" id="all-box">
-        <input class='col-xs-10 col-md-10' id="searchbox" type="text" search="article" placeholder="">
+    <div class="form col-xs-12 col-md-12 col-sm-12" id="all-box">
+        <input class='col-xs-11 col-md-11 col-sm-11' id="searchbox" type="text" search="article" placeholder="">
         <a href="#"><span class="glyphicon glyphicon-search col-xs-1" id="search" data-toggle="tooltip" title="search" >
       </span>
             </a>
@@ -24,7 +24,7 @@
         <!--<b>|</b>-->
             <!--</span>-->
             <!--<-->
-        <a href="#"><span class="glyphicon glyphicon-remove col-xs-1" id="remove" data-toggle="tooltip" title="remove" >
+        <a href="#"><span class="glyphicon glyphicon-remove col-xs-1 col-md-1 col-sm-1" id="remove" data-toggle="tooltip" title="remove" >
       </span>
         </a>
 </div><!-- /input-group -->
@@ -135,7 +135,7 @@
          if (res!=""){
              $('#search').css('display','none');
              $('#remove').css('display','inline');
-             $('#all-box').css('width','800px');
+             $('#all-box').css('width','100%');
              $('#all-box').css('margin','30px 0px 30px 0px');
          }
      });

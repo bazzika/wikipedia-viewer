@@ -14,7 +14,7 @@ a, .link-random:hover {
     position: relative;
     font-family: 'Courier New',sans-serif;
     text-align: center;
-    margin: 300px auto auto auto;
+    margin: 300px auto 0 auto;
 }
 a:hover{
     text-decoration: none;
@@ -97,13 +97,13 @@ li:hover{
     /*z-index: 20;*/
 /*}*/
 #all-box{
-    width: 400px;
+    width: 50%;
     border:solid 3px green;
     padding: 0 auto;
     /*margin: 30px auto;*/
 
     margin: 30px 200px 0 200px;
-    /*position: relative;*/
+    position: relative;
     z-index: 20;
     transition-property: width,margin;
     transition-duration: 1s;
@@ -111,8 +111,8 @@ li:hover{
     display: inline-block;
 }
 
-#all-box:hover,#all-box:active{
-    width:800px;
+#all-box:hover,#all-box:active,#all-box:focus{
+    width:100%;
     margin: 30px auto;
     /*margin: 30px auto 30px auto;*/
     /*padding: 0 auto;*/
