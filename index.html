@@ -82,7 +82,7 @@
       });
 
       $('#searchbox').keypress(function (e) {
-          $('#all-box').css('margin-left','0px');
+          $('#all-box').css('margin','30px auto');
 //          $('#all-box').css('width','100%');
           if (e.which == 13) {
               var result = $('#searchbox').val();
@@ -136,7 +136,8 @@
              $('#search').css('display','none');
              $('#remove').css('display','inline');
              $('#all-box').css('width','100%');
-             $('#all-box').css('margin','30px 0px 30px 0px');
+             $('#all-box').css('margin-top','30px');
+             $('#all-box').css('margin-bottom','30px');
          }
      });
 //      http://ios7colors.com/

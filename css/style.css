@@ -30,12 +30,12 @@ a:hover{
     text-align: center;
     position: relative;
     margin: 300px auto 0 auto;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
 }
 
 .one{
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 auto;
     font-family: 'Courier New',sans-serif;
     position: relative;
 }
@@ -56,6 +56,7 @@ li{
     margin: 0 auto;
     box-shadow: 0 0 5px 5px #dddddd;
     position: relative;
+    font-style: inherit;
 }
 li:hover{
     background-color: honeydew;
@@ -78,42 +79,23 @@ li:hover{
     cursor: auto;
     display: inline-block;
 }
-
-#search{
-
-    font-size:20px;
-    line-height: 40px;
-    padding: 0;
-    text-align: center;
-    color:green;
-    float:right;
-}
-/*.first{*/
-    /*width: 400px;*/
-    /*border:solid 3px green;*/
-    /*padding: 0 auto;*/
-    /*margin: 30px -200px 30px 200px;*/
-    /*!*position: relative;*!*/
-    /*z-index: 20;*/
-/*}*/
 #all-box{
     width: 50%;
     border:solid 3px green;
     padding: 0 auto;
     /*margin: 30px auto;*/
-
     margin: 30px 200px 0 200px;
     position: relative;
     z-index: 20;
     transition-property: width,margin;
-    transition-duration: 1s;
-    transition-timing-function: ease-out;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
     display: inline-block;
 }
 
 #all-box:hover,#all-box:active,#all-box:focus{
     width:100%;
-    margin: 30px auto;
+    margin: 30px 20px 30px 20px;
     /*margin: 30px auto 30px auto;*/
     /*padding: 0 auto;*/
 }
@@ -124,8 +106,15 @@ li:hover{
     /*padding: 0 auto;*/
 
 /*}*/
+#search{
 
-
+    font-size:20px;
+    line-height: 40px;
+    padding: 0;
+    text-align: center;
+    color:green;
+    float:right;
+}
 #remove{
     font-size:20px;
     line-height: 40px;
@@ -134,7 +123,6 @@ li:hover{
     color:green;
     display: none;
     float:right;
-    padding-right: 0px;
 }
 #line{
     font-size:30px;
@@ -153,4 +141,72 @@ li:hover{
     /*position: relative;*/
 
 }
-
+@media screen and (max-width: 480px){
+    .container{
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 auto;
+    }
+    .one{
+        font-size: 13px;
+        letter-spacing: 0px;
+        word-wrap: break-word;
+        line-height: 1.4;
+    }
+    li>h4{
+        color : darkred;
+        line-height: 1;
+        word-wrap: break-word;
+        font-size: 13px;
+    }
+    .link-random{
+        font-size: 14px;
+        margin: 50px 10px 0px 10px;
+    }
+    #all-box{
+        width: 100%;
+        margin: 30px 20px 0 20px;
+    }
+    .zero {
+        margin: 100px 0 0 0;
+    }
+    #all-box:hover,#all-box:active,#all-box:focus{
+        width:100%;
+        margin: 30px 20px 0 20px;
+    }
+}
+@media screen and (max-width: 768px){
+    .container{
+        width: 90%;
+        margin: 0 auto;
+        padding: 0 auto;
+    }
+    .one{
+        font-size: 13px;
+        letter-spacing: 0px;
+        word-wrap: break-word;
+        line-height: 1.4;
+    }
+    li>h4{
+        color : darkred;
+        line-height: 1;
+        word-wrap: break-word;
+        font-size:13px ;
+    }
+    .link-random{
+        font-size: 14px;
+        margin: 50px 10px 0px 10px;
+    }
+    #all-box{
+        width: 100%;
+        margin: 30px auto 0 auto;
+        transition: none;
+    }
+    .zero {
+        margin: 100px 0 0 0;
+    }
+    #all-box:hover,#all-box:active,#all-box:focus{
+        width:100%;
+        margin: 30px auto 0 auto;
+    }
+}
